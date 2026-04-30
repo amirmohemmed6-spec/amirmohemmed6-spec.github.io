@@ -3,22 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir Pro Gamer</title>
+    <title>Amir Mohammad Ashjaee | Official Site</title>
     <style>
-        body { background-color: #0a0a0a; color: #00ff41; font-family: sans-serif; text-align: center; padding: 50px; }
-        .box { border: 2px solid #00ff41; padding: 20px; border-radius: 15px; display: inline-block; background: #111; }
-        h1 { font-size: 3rem; text-shadow: 0 0 10px #00ff41; }
-        p { color: #ccc; font-size: 1.2rem; }
-        .highlight { color: #fff; font-weight: bold; }
+        :root { --main-color: #00ff41; --bg-dark: #020202; --card-bg: #0f0f0f; }
+        body { background-color: var(--bg-dark); color: #eee; font-family: 'Tahoma', sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* هدر و منوی بالا */
+        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.95); border-bottom: 2px solid var(--main-color); position: sticky; top: 0; z-index: 1000; }
+        .account-id { font-family: monospace; color: var(--main-color); font-size: 1.1rem; text-shadow: 0 0 10px var(--main-color); }
+        .user-profile { display: flex; align-items: center; gap: 12px; }
+        .profile-pic { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--main-color); object-fit: cover; }
+        .user-names { text-align: left; font-size: 0.85rem; }
+
+        /* بخش معرفی اصلی */
+        .hero-section { text-align: center; padding: 80px 20px; background: radial-gradient(circle, rgba(0,255,65,0.1) 0%, transparent 70%); }
+        h1 { font-size: 3rem; margin: 0; color: #fff; letter-spacing: 2px; }
+        .subtitle { font-size: 1.2rem; color: var(--main-color); margin-top: 10px; opacity: 0.8; }
+
+        /* گالری پابجی */
+        .pubg-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 5%; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 15px; border: 1px solid #222; transition: 0.4s; }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; transition: 0.5s; filter: grayscale(30%); }
+        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); border-color: var(--main-color); }
+        .gallery-item:hover { box-shadow: 0 0 25px rgba(0,255,65,0.3); border-color: var(--main-color); }
+
+        /* دکمه‌های ارتباطی */
+        .action-btns { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
+        .btn { padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; border: 2px solid var(--main-color); color: var(--main-color); }
+        .btn:hover { background: var(--main-color); color: #000; box-shadow: 0 0 30px var(--main-color); }
+
+        /* فوتر / سازنده */
+        footer { background: #080808; padding: 60px 20px; text-align: center; border-top: 1px solid #1a1a1a; }
+        .builder-text { font-size: 1.1rem; color: #777; }
+        .builder-name { color: var(--main-color); font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
 <body>
-    <div class="box">
+
+    <nav class="top-nav">
+        <div class="account-id">ID: 5737064866 | AMIR ASHJAEE</div>
+        <div class="user-profile">
+            <div class="user-names">
+                <div style="font-weight:bold; color:var(--main-color);">Amir Mohammad Ashjaee</div>
+                <div dir="rtl">امیر محمد اشجعی</div>
+            </div>
+            <!-- تصویر پروفایل ارسالی شما -->
+            <img src="https://user-images.githubusercontent.com/amirmohemmed6/pubg-pro-dev/main/amir_ashjaee_profile.jpg" class="profile-pic" alt="Amir Profile">
+        </div>
+    </nav>
+
+    <div class="hero-section">
         <h1>AMIR PRO</h1>
-        <p>متخصص بهینه‌سازی <span class="highlight">Honor X8 5G</span></p>
-        <p>مرجع ترفندهای <span class="highlight">PUBG Mobile</span> و فریم‌ریت ۱۲۰</p>
-        <hr style="border: 0.5px solid #333;">
-        <p>«لگ، خط قرمز ماست!»</p>
+        <p class="subtitle">Official Gaming Hub & Personal Portfolio</p>
+        <div class="action-btns">
+            <a href="#" class="btn">تلگرام من</a>
+            <a href="#" class="btn">اینستاگرام</a>
+        </div>
     </div>
+
+    <div class="pubg-gallery">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000" alt="PUBG Scene 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552824734-fa6d7e98d975?q=80&w=1000" alt="PUBG Scene 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1614027126211-175f50ba4dd5?q=80&w=1000" alt="PUBG Scene 3"></div>
+    </div>
+
+    <footer>
+        <div class="builder-text">
+            طراحی و توسعه توسط: <br>
+            <span class="builder-name">Amir Mohammad Ashjaee (امیر محمد اشجعی)</span>
+        </div>
+        <p style="margin-top:20px; font-size:0.8rem; color:#444;">© 2026 - Powered by Honor X8 5G</p>
+    </footer>
+
 </body>
 </html>
