@@ -3,76 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir Mohammad Ashjaee | Official Site</title>
+    <title>AMIR ASHJAEE | Official Web</title>
     <style>
-        :root { --main-color: #00ff41; --bg-dark: #020202; --card-bg: #0f0f0f; }
-        body { background-color: var(--bg-dark); color: #eee; font-family: 'Tahoma', sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        :root { --main: #00ff7f; --dark-1: #0a0a0a; --dark-2: #151515; --silver: #e0e0e0; }
+        body { background-color: var(--dark-1); color: var(--silver); font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         
-        /* هدر و منوی بالا */
-        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.95); border-bottom: 2px solid var(--main-color); position: sticky; top: 0; z-index: 1000; }
-        .account-id { font-family: monospace; color: var(--main-color); font-size: 1.1rem; text-shadow: 0 0 10px var(--main-color); }
-        .user-profile { display: flex; align-items: center; gap: 12px; }
-        .profile-pic { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--main-color); object-fit: cover; }
-        .user-names { text-align: left; font-size: 0.85rem; }
+        /* هدر شیشه‌ای */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,255,127,0.3); sticky: top; z-index: 1000; }
+        .acc-id { font-family: 'Courier New', monospace; color: var(--main); font-weight: bold; font-size: 1rem; border: 1px solid var(--main); padding: 5px 12px; border-radius: 5px; }
+        .profile { display: flex; align-items: center; gap: 15px; }
+        .avatar { width: 45px; height: 45px; border-radius: 12px; border: 2px solid var(--main); box-shadow: 0 0 15px rgba(0,255,127,0.4); }
 
-        /* بخش معرفی اصلی */
-        .hero-section { text-align: center; padding: 80px 20px; background: radial-gradient(circle, rgba(0,255,65,0.1) 0%, transparent 70%); }
-        h1 { font-size: 3rem; margin: 0; color: #fff; letter-spacing: 2px; }
-        .subtitle { font-size: 1.2rem; color: var(--main-color); margin-top: 10px; opacity: 0.8; }
+        /* بخش اصلی */
+        .hero { text-align: center; padding: 100px 20px; background: radial-gradient(circle at center, rgba(0,255,127,0.08) 0%, transparent 70%); }
+        .status { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; background: rgba(0,255,127,0.1); padding: 5px 15px; border-radius: 20px; color: var(--main); margin-bottom: 20px; border: 1px solid rgba(0,255,127,0.2); }
+        .dot { width: 8px; height: 8px; background: var(--main); border-radius: 50%; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* گالری پابجی */
-        .pubg-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 5%; }
-        .gallery-item { position: relative; overflow: hidden; border-radius: 15px; border: 1px solid #222; transition: 0.4s; }
-        .gallery-item img { width: 100%; height: 250px; object-fit: cover; transition: 0.5s; filter: grayscale(30%); }
-        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); border-color: var(--main-color); }
-        .gallery-item:hover { box-shadow: 0 0 25px rgba(0,255,65,0.3); border-color: var(--main-color); }
+        h1 { font-size: 3.5rem; margin: 0; color: #fff; text-transform: uppercase; letter-spacing: 4px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .name-farsi { font-size: 1.5rem; color: var(--main); margin-top: 10px; font-weight: 100; }
 
-        /* دکمه‌های ارتباطی */
-        .action-btns { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
-        .btn { padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; border: 2px solid var(--main-color); color: var(--main-color); }
-        .btn:hover { background: var(--main-color); color: #000; box-shadow: 0 0 30px var(--main-color); }
+        /* دکمه‌های جدید */
+        .social-btns { display: flex; justify-content: center; gap: 20px; margin-top: 40px; }
+        .s-btn { padding: 14px 35px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.4s; position: relative; overflow: hidden; background: var(--dark-2); border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+        .s-btn.insta:hover { border-color: #e1306c; box-shadow: 0 0 20px rgba(225,48,108,0.3); }
+        .s-btn.tele:hover { border-color: #0088cc; box-shadow: 0 0 20px rgba(0,136,204,0.3); }
 
-        /* فوتر / سازنده */
-        footer { background: #080808; padding: 60px 20px; text-align: center; border-top: 1px solid #1a1a1a; }
-        .builder-text { font-size: 1.1rem; color: #777; }
-        .builder-name { color: var(--main-color); font-weight: bold; text-transform: uppercase; }
+        /* گالری پابجی خفن */
+        .gallery-title { text-align: center; margin-top: 50px; color: var(--main); letter-spacing: 2px; font-size: 0.9rem; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 30px 5%; }
+        .g-card { height: 220px; border-radius: 15px; overflow: hidden; border: 1px solid #222; position: relative; }
+        .g-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; filter: brightness(60%) sepia(20%); }
+        .g-card:hover img { transform: scale(1.15) rotate(2deg); filter: brightness(100%) sepia(0%); }
+        .g-card::after { content: 'AMIR ASHJAEE'; position: absolute; bottom: 15px; right: 15px; font-size: 0.7rem; color: var(--main); opacity: 0.7; }
+
+        footer { padding: 60px 20px; text-align: center; background: #050505; border-top: 1px solid #111; }
+        .dev-by { font-size: 0.9rem; color: #555; }
+        .dev-by span { color: var(--main); font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <div class="account-id">ID: 5737064866 | AMIR ASHJAEE</div>
-        <div class="user-profile">
-            <div class="user-names">
-                <div style="font-weight:bold; color:var(--main-color);">Amir Mohammad Ashjaee</div>
-                <div dir="rtl">امیر محمد اشجعی</div>
+    <nav class="navbar">
+        <div class="acc-id">5737064866</div>
+        <div class="profile">
+            <div style="text-align:left;">
+                <div style="font-weight:bold; color:#fff; font-size:1rem;">Amir Mohammad Ashjaee</div>
+                <div dir="rtl" style="font-size:0.75rem; color:#888;">امیر محمد اشجعی</div>
             </div>
-            <!-- تصویر پروفایل ارسالی شما -->
-            <img src="https://user-images.githubusercontent.com/amirmohemmed6/pubg-pro-dev/main/amir_ashjaee_profile.jpg" class="profile-pic" alt="Amir Profile">
+            <!-- عکس پروفایلت که از قبل داشتی -->
+            <img src="https://user-images.githubusercontent.com/amirmohemmed6/pubg-pro-dev/main/amir_ashjaee_profile.jpg" class="avatar" alt="Amir">
         </div>
     </nav>
 
-    <div class="hero-section">
+    <main class="hero">
+        <div class="status"><div class="dot"></div> System Active | Online</div>
         <h1>AMIR PRO</h1>
-        <p class="subtitle">Official Gaming Hub & Personal Portfolio</p>
-        <div class="action-btns">
-            <a href="#" class="btn">تلگرام من</a>
-            <a href="#" class="btn">اینستاگرام</a>
+        <div class="name-farsi">امیر محمد اشجعی</div>
+        
+        <div class="social-btns">
+            <a href="https://instagram.com/_amir_ash0" class="s-btn insta">Instagram</a>
+            <a href="https://t.me/amir" class="s-btn tele">Telegram</a>
         </div>
-    </div>
+    </main>
 
-    <div class="pubg-gallery">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000" alt="PUBG Scene 1"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552824734-fa6d7e98d975?q=80&w=1000" alt="PUBG Scene 2"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1614027126211-175f50ba4dd5?q=80&w=1000" alt="PUBG Scene 3"></div>
+    <div class="gallery-title">PUBG MOBILE RECENT ACTIVITY</div>
+    <div class="gallery">
+        <div class="g-card"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800"></div>
+        <div class="g-card"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=800"></div>
+        <div class="g-card"><img src="https://images.unsplash.com/photo-1552824734-fa6d7e98d975?q=80&w=800"></div>
     </div>
 
     <footer>
-        <div class="builder-text">
-            طراحی و توسعه توسط: <br>
-            <span class="builder-name">Amir Mohammad Ashjaee (امیر محمد اشجعی)</span>
-        </div>
-        <p style="margin-top:20px; font-size:0.8rem; color:#444;">© 2026 - Powered by Honor X8 5G</p>
+        <div class="dev-by">Designed & Developed by <span>Amir Mohammad Ashjaee</span></div>
+        <p style="font-size:0.7rem; color:#333; margin-top:10px;">© 2026 - Powered by HONOR X8 5G Technology</p>
     </footer>
 
 </body>
