@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amir Site</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+header {
+    background: black;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.profile {
+    margin-top: 30px;
+}
+
+.profile img {
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #000;
+}
+
+.profile h2 {
+    margin-top: 10px;
+}
+
+.info {
+    margin-top: 10px;
+    color: #00ffcc;
+}
+
+.gallery {
+    margin-top: 40px;
+}
+
+.gallery img {
+    width: 250px;
+    margin: 10
