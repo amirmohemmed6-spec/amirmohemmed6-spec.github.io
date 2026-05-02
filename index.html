@@ -3,189 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir's Universe</title>
+    <title>Amir | Private Space</title>
     <style>
-        /* تنظیمات پایه و تم دارک */
+        :root {
+            --accent: #ffffff;
+            --bg: #080808;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
         }
 
         body {
-            background: #050505; /* مشکی فوق‌العاده عمیق */
-            color: white;
-            overflow-x: hidden;
+            background-color: var(--bg);
+            color: var(--accent);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow: hidden;
         }
 
-        /* پس‌زمینه متحرک نئونی */
-        .bg-animate {
+        /* لایه نوری پس‌زمینه (Shadowy Aesthetic) */
+        .spotlight {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
-            z-index: -1;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .blob {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(45deg, #333, #111);
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: -1;
-            animation: move 20s infinite alternate;
-        }
-
-        @keyframes move {
-            from { transform: translate(-20%, -20%); }
-            to { transform: translate(20%, 20%); }
-        }
-
-        /* کارت اصلی (Glassmorphism) */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            padding: 40px;
+        .container {
             width: 90%;
-            max-width: 450px;
+            max-width: 500px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 50px 30px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* تصویر پروفایل با سایه دارک */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
         .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 130px;
+            height: 130px;
+            border-radius: 40px; /* مدل اشکی مدرن */
             object-fit: cover;
-            border: 3px solid #222;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            filter: grayscale(1) contrast(1.1); /* استایل سیاه و سفید باکلاس */
+            border: 1px solid var(--border);
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            font-weight: 200;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 0.85rem;
             letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: 300;
-            color: #eee;
+            margin-bottom: 35px;
         }
 
-        .status {
+        .bio-section {
             font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: #555;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #444;
-        }
-
-        /* دکمه‌های شبکه‌های اجتماعی */
-        .links {
+        .links-grid {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .link-item {
+        .link-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             text-decoration: none;
             color: #ccc;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 15px;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .link-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.02);
+        .link-card:hover {
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.03);
         }
 
-        /* استایل اختصاصی برای آیکون‌ها (Emoji) */
-        .icon {
-            font-size: 1.2rem;
+        .link-info span {
+            display: block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            opacity: 0.6;
         }
 
-        /* فوتر ریز */
         .footer {
-            margin-top: 30px;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 1px;
+            margin-top: 50px;
+            font-size: 0.6rem;
+            color: #333;
+            letter-spacing: 3px;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="bg-animate">
-        <div class="blob"></div>
-    </div>
+    <div class="spotlight" id="spot"></div>
 
-    <div class="glass-card">
-        <!-- اینجا می‌تونی لینک عکس خودت رو بذاری -->
-        <img src="https://via.placeholder.com/150/0a0a0a/ffffff?text=AMIR" alt="Profile" class="profile-img">
-        
-        <h1>AMIR</h1>
-        
-        <div class="status">
-            <div class="dot"></div>
-            <span>Shadow Architect</span>
+    <div class="container">
+        <div class="profile-wrapper">
+            <!-- جای این عکس می‌تونی لینک یکی از ادیت‌های تاریک خودت رو بذاری -->
+            <img src="https://via.placeholder.com/300/080808/ffffff?text=AMIR" alt="Amir" class="profile-img">
         </div>
 
-        <div class="links">
-            <a href="https://instagram.com/amir" class="link-item">
-                <span class="icon">📸</span>
-                اینستاگرام
+        <h1>AMIR</h1>
+        <p class="tagline">CREATIVE ARCHITECT</p>
+
+        <div class="bio-section">
+            تمرکز بر کیفیت، حرکت در سایه‌ها.<br>
+            جایی که استایل با تکنولوژی ملاقات می‌کند.
+        </div>
+
+        <div class="links-grid">
+            <!-- لینک اینستاگرام اصلاح شده -->
+            <a href="https://instagram.com/_amir_ash0" class="link-card">
+                <div class="link-info">
+                    <span>Social Media</span>
+                    <strong>Instagram</strong>
+                </div>
+                <div class="arrow">↗</div>
             </a>
-            <a href="https://t.me/amir" class="link-item">
-                <span class="icon">📡</span>
-                تلگرام
+
+            <!-- لینک تلگرام -->
+            <a href="https://t.me/amir" class="link-card">
+                <div class="link-info">
+                    <span>Direct Message</span>
+                    <strong>Telegram</strong>
+                </div>
+                <div class="arrow">↗</div>
             </a>
-            <a href="#" class="link-item">
-                <span class="icon">🕶️</span>
-                پورتفولیو شخصی
+
+            <!-- شماره تماس اضافه شده -->
+            <a href="tel:09938426581" class="link-card">
+                <div class="link-info">
+                    <span>Mobile Number</span>
+                    <strong>0993 842 6581</strong>
+                </div>
+                <div class="arrow">📞</div>
             </a>
         </div>
 
         <div class="footer">
-            DESIGNED IN THE SHADOWS
+            EST. 2026 | ALL RIGHTS RESERVED
         </div>
     </div>
 
+    <script>
+        // افکت حرکت نور با موس (باکلاس کردن محیط)
+        const spot = document.getElementById('spot');
+        document.body.addEventListener('mousemove', e => {
+            spot.style.setProperty('--x', e.clientX + 'px');
+            spot.style.setProperty('--y', e.clientY + 'px');
+        });
+    </script>
 </body>
 </html>
