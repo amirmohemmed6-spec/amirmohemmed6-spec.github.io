@@ -94,3 +94,194 @@ footer {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amir's Universe</title>
+    <style>
+        /* تنظیمات پایه و تم دارک */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #050505; /* مشکی فوق‌العاده عمیق */
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* پس‌زمینه متحرک نئونی */
+        .bg-animate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+            z-index: -1;
+        }
+
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #333, #111);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-20%, -20%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        /* کارت اصلی (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* تصویر پروفایل با سایه دارک */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #222;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 300;
+            color: #eee;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #555;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #444;
+        }
+
+        /* دکمه‌های شبکه‌های اجتماعی */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-item {
+            text-decoration: none;
+            color: #ccc;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* استایل اختصاصی برای آیکون‌ها (Emoji) */
+        .icon {
+            font-size: 1.2rem;
+        }
+
+        /* فوتر ریز */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animate">
+        <div class="blob"></div>
+    </div>
+
+    <div class="glass-card">
+        <!-- اینجا می‌تونی لینک عکس خودت رو بذاری -->
+        <img src="https://via.placeholder.com/150/0a0a0a/ffffff?text=AMIR" alt="Profile" class="profile-img">
+        
+        <h1>AMIR</h1>
+        
+        <div class="status">
+            <div class="dot"></div>
+            <span>Shadow Architect</span>
+        </div>
+
+        <div class="links">
+            <a href="https://instagram.com/amir" class="link-item">
+                <span class="icon">📸</span>
+                اینستاگرام
+            </a>
+            <a href="https://t.me/amir" class="link-item">
+                <span class="icon">📡</span>
+                تلگرام
+            </a>
+            <a href="#" class="link-item">
+                <span class="icon">🕶️</span>
+                پورتفولیو شخصی
+            </a>
+        </div>
+
+        <div class="footer">
+            DESIGNED IN THE SHADOWS
+        </div>
+    </div>
+
+</body>
+</html>
